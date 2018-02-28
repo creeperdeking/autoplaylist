@@ -70,8 +70,6 @@ def savePlaylist(fileName, playlistExtracted):
 
 		outFile.write(e[0]+';'+e[1]+';'+e[2]+"\n")
 		for i in range(len(fqList)): # fqList a la même longueur que la table de fréquences
-			#import pdb
-			#pdb.set_trace()
 			elem = []
 			for l in fqList:
 				if l[0] == e[1]:

@@ -18,20 +18,19 @@ def consoleUI():
 			print("   - "+playlist)
 
 		print()
-		playlistInput = input("Veuillez saisir le nom de votre playlist : ")
+		playlistInput = input("Veuillez saisir un nom de playlist (si existe pas sera créée) : ")
 		if playlistInput == "quit" or playlistInput == "exit":
 			break
 
 		if not playlistInput in existingPlaylists:
-			print("Cette playlist n'existe pas, voulez vous en creer une nouvelle? (y/n)")
-			answer = input()
+			answer = input("Cette playlist n'existe pas, voulez vous en créer une nouvelle? (y/n) : ")
 
 			if answer == 'y':
-				print("Veuillez entrer successivement le chemin vers chacune des playlist au format .m3u qui composeront votre nouvelle playlist personnalisee (q pour terminer): ")
+				print("Veuillez entrer successivement le chemin vers chacune des playlist au format .m3u qui composeront votre nouvelle playlist personnalisée (q pour terminer): ")
 				playlistExtracted = []
 
 				while True:
-					answer = input()
+					answer = input("=? ")
 					if answer != 'q':
 						# On teste si le fichier existe
 						openSuccess = True
@@ -45,10 +44,10 @@ def consoleUI():
 							openSuccess = False
 
 						if not openSuccess:
-							print("ERREUR: Votre fichier n'existe pas ou n'est pas au format m3u, didiou!")
+							print("ERREUR: Votre fichier n'existe pas où n'est pas au format m3u, didiou!")
 						else:
 							playlistExtracted.extend(extractM3U(fileContent))
-							print("Playlist ajoutee!")
+							print("Playlist ajoutée!")
 					else:
 						break
 
